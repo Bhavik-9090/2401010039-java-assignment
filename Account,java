@@ -1,0 +1,59 @@
+public class Account {
+   private int accountNumber;
+   private String accountHolderName;
+   private double balance;
+   private String email;
+   private String phoneNumber;
+
+   public Account(int var1, String var2, double var3, String var5, String var6) {
+      this.accountNumber = var1;
+      this.accountHolderName = var2;
+      this.balance = var3;
+      this.email = var5;
+      this.phoneNumber = var6;
+   }
+
+   public void deposit(double var1) {
+      if (var1 > 0.0) {
+         this.balance += var1;
+         System.out.println("Succesfully deposited RS." + var1);
+      } else {
+         System.out.println("Invalid deposit amount.Must be positive.");
+      }
+
+   }
+
+   public void withdraw(double var1) {
+      if (var1 > 0.0) {
+         if (var1 <= this.balance) {
+            this.balance -= var1;
+            System.out.println("Successfully withdrawn Rs." + var1);
+         } else {
+            System.out.println("Insufficient balnce!");
+         }
+      } else {
+         System.out.println("Invalid withdrawal amount. Must be positive.");
+      }
+
+   }
+
+   public void displayAccountDetails() {
+      System.out.println("\n--- Account Details ---");
+      System.out.println("Account Number: " + this.accountNumber);
+      System.out.println("Account Holder: " + this.accountHolderName);
+      System.out.println("Balance: ₹" + this.balance);
+      System.out.println("Email: " + this.email);
+      System.out.println("Phone: " + this.phoneNumber);
+      System.out.println("------------------------\n");
+   }
+
+   public void updateContactDetails(String var1, String var2) {
+      this.email = var1;
+      this.phoneNumber = var2;
+      System.out.println("Contact details updated successfully!");
+   }
+
+   public int getAccountNumber() {
+      return this.accountNumber;
+   }
+}
